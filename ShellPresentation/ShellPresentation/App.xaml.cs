@@ -14,7 +14,8 @@ namespace ShellPresentation
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            Startup.Init();
+            //DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 

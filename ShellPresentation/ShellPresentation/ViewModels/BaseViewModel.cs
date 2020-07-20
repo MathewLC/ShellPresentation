@@ -8,12 +8,16 @@ using Xamarin.Forms;
 using ShellPresentation.Models;
 using ShellPresentation.Services;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ShellPresentation.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        //public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataStore<Item> DataStore => Startup.ServiceProvider.GetService<IDataStore<Item>>();
+
+
 
         protected NavigationService Navigation => NavigationService.Current;
 

@@ -80,7 +80,8 @@ namespace ShellPresentation.Services
         {
             var name = typeof(NavigationService).AssemblyQualifiedName.Split('.')[0];
             var typeName = $"{name}.ViewModels.{url}";
-            var viewModel = (BaseViewModel)Activator.CreateInstance(Type.GetType(typeName));
+            //var viewModel = (BaseViewModel)Activator.CreateInstance(Type.GetType(typeName));
+            var viewModel = (BaseViewModel)Startup.ServiceProvider.GetService(Type.GetType(typeName));
             return viewModel;
         }
     }
