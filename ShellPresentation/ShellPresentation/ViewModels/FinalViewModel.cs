@@ -1,4 +1,4 @@
-﻿using ShellPresentation.Models;
+using ShellPresentation.Models;
 using ShellPresentation.Services;
 using System;
 using System.Collections.Generic;

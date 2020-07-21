@@ -2,15 +2,12 @@
 using ShellPresentation.Services;
 using System;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace ShellPresentation.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
-
         private string name;
 
         public string Name
@@ -33,9 +30,9 @@ namespace ShellPresentation.ViewModels
             OpenWebCommand = new AsyncCommand(OpenWebCommandExecute);
         }
 
-        private async Task OpenWebCommandExecute()
+        Task OpenWebCommandExecute()
         {
-            await  Navigation.GoToAsync("InfoViewModel", new User
+            return Navigation.GoToAsync("InfoViewModel", new User
             {
                 UserName = Name,
                 UserAge = Age

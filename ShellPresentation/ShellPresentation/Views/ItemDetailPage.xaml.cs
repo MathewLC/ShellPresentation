@@ -1,7 +1,5 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 using ShellPresentation.Models;
 using ShellPresentation.ViewModels;
@@ -16,26 +14,20 @@ namespace ShellPresentation.Views
     {
         ItemDetailViewModel viewModel;
 
-        public ItemDetailPage(ItemDetailViewModel viewModel)
-        {
-            InitializeComponent();
-
-            BindingContext = this.viewModel = viewModel;
-        }
-
         public ItemDetailPage()
         {
             InitializeComponent();
 
-            var item = new Item
-            {
-                Text = "Item 1",
-                Description = "This is an item description."
-            };
+            //var item = new Item
+            //{
+            //    Text = "Item 1",
+            //    Description = "This is an item description."
+            //};
 
-            var dataStore = Startup.ServiceProvider.GetService<IDataStore<Item>>();
-            viewModel = new ItemDetailViewModel(dataStore,item);
-            BindingContext = viewModel;
+            //var dataStore = (IDataStore<Item>)Startup.ServiceProvider.GetService(typeof(IDataStore<Item>));
+            //viewModel = new ItemDetailViewModel(dataStore,item);
+            //BindingContext = viewModel;
+
         }
     }
 }

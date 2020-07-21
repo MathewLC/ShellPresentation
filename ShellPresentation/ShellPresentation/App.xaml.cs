@@ -1,9 +1,6 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 using ShellPresentation.Services;
-using ShellPresentation.Views;
-using Xamarin.Essentials;
+using static System.String;
 
 namespace ShellPresentation
 {
@@ -22,10 +19,10 @@ namespace ShellPresentation
         protected override async void OnStart()
         {
             var nav = NavigationService.Current;
-            //var lastLocation = Preferences.Get("LastKnownUrl", string.Empty);
-            //if (string.IsNullOrEmpty(lastLocation))
-            //    return;
-            //await nav.GoToAsync(new ShellNavigationState(lastLocation));
+            var lastLocation = Xamarin.Essentials.Preferences.Get("LastKnownUrl", string.Empty);
+            if (IsNullOrEmpty(lastLocation))
+                return;
+            await nav.GoToAsync(new ShellNavigationState(lastLocation));
         }
 
         protected override void OnSleep()
