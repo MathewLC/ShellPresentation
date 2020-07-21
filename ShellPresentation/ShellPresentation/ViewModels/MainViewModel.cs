@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ShellPresentation.Models;
+using ShellPresentation.Services;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -13,5 +15,6 @@ namespace ShellPresentation.ViewModels
             get => isChecked;
             set => SetProperty(ref isChecked, value);
         }
+        public MainViewModel(IDataStore<Item> dataStore) : base(dataStore) { }
     }
 }

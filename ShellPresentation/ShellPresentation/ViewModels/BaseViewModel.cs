@@ -15,9 +15,16 @@ namespace ShellPresentation.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         //public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
-        public IDataStore<Item> DataStore => Startup.ServiceProvider.GetService<IDataStore<Item>>();
 
+        //You can use ASP.NET DI this way too.
+        //public IDataStore<Item> DataStore => Startup.ServiceProvider.GetService<IDataStore<Item>>();
 
+        public IDataStore<Item> DataStore;
+
+        protected BaseViewModel(IDataStore<Item> dataStore)
+        {
+            DataStore = dataStore;
+        }
 
         protected NavigationService Navigation => NavigationService.Current;
 

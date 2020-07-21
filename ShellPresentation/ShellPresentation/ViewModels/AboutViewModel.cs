@@ -1,4 +1,5 @@
 ﻿using ShellPresentation.Models;
+using ShellPresentation.Services;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -26,7 +27,7 @@ namespace ShellPresentation.ViewModels
             set => SetProperty(ref age, value);
         }
 
-        public AboutViewModel()
+        public AboutViewModel(IDataStore<Item> dataStore):base(dataStore)
         {
             Title = "About";
             OpenWebCommand = new AsyncCommand(OpenWebCommandExecute);

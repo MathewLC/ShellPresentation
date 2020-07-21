@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using ShellPresentation.Models;
 using ShellPresentation.Views;
 using ShellPresentation.ViewModels;
+using ShellPresentation.Services;
 
 namespace ShellPresentation.Views
 {
@@ -24,14 +25,15 @@ namespace ShellPresentation.Views
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = viewModel = new ItemsViewModel(Startup.ServiceProvider.GetService<IDataStore<Item>>());
         }
 
         async void OnItemSelected(object sender, EventArgs args)
         {
             var layout = (BindableObject)sender;
             var item = (Item)layout.BindingContext;
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            var dataStore = Startup.ServiceProvider.GetService<IDataStore<Item>>();
+            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(dataStore,item)));
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)

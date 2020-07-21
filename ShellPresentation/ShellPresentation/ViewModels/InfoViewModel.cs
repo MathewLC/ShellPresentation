@@ -1,4 +1,5 @@
 ﻿using ShellPresentation.Models;
+using ShellPresentation.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,7 @@ namespace ShellPresentation.ViewModels
         public uint Age { get; set; }
 
         public Command FinalCommand { get; }
-        public InfoViewModel()
+        public InfoViewModel(IDataStore<Item> dataStore) : base(dataStore) 
         {
             FinalCommand = new AsyncCommand(FinalCommandExecute);
         }

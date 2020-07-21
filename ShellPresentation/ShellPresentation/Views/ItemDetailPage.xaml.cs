@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 
 using ShellPresentation.Models;
 using ShellPresentation.ViewModels;
+using ShellPresentation.Services;
 
 namespace ShellPresentation.Views
 {
@@ -32,7 +33,8 @@ namespace ShellPresentation.Views
                 Description = "This is an item description."
             };
 
-            viewModel = new ItemDetailViewModel(item);
+            var dataStore = Startup.ServiceProvider.GetService<IDataStore<Item>>();
+            viewModel = new ItemDetailViewModel(dataStore,item);
             BindingContext = viewModel;
         }
     }

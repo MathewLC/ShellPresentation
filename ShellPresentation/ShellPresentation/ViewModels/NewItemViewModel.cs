@@ -1,4 +1,5 @@
 ﻿using ShellPresentation.Models;
+using ShellPresentation.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -47,7 +48,7 @@ namespace ShellPresentation.ViewModels
 
         }
 
-        public NewItemViewModel()
+        public NewItemViewModel(IDataStore<Item> dataStore) : base(dataStore) 
         {
         }
     }

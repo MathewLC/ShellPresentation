@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 using ShellPresentation.Models;
 using ShellPresentation.Views;
+using ShellPresentation.Services;
 
 namespace ShellPresentation.ViewModels
 {
@@ -16,7 +17,7 @@ namespace ShellPresentation.ViewModels
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
 
-        public ItemsViewModel()
+        public ItemsViewModel(IDataStore<Item> dataStore) : base(dataStore)
         {
             Title = "Browse";
             Items = new ObservableCollection<Item>();

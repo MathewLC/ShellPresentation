@@ -6,10 +6,12 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:ShellPresentation.ViewModels"
-    mc:Ignorable="d">
-    <ContentPage.BindingContext>
+    xmlns:locator="clr-namespace:ShellPresentation"
+    mc:Ignorable="d"
+    BindingContext="{Binding MainViewModel,Source={StaticResource Locator}}">
+    <!--<ContentPage.BindingContext>
         <viewmodels:MainViewModel />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     <ContentPage.Content>
         <StackLayout>
             <CheckBox IsChecked="{Binding IsChecked}" />
